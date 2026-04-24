@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎首页</title>
+    <style>
+        /* 页面基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 页面布局 - 移除背景图片，改用纯色渐变背景 */
+        body {
+            min-height: 100vh;
+            /* 替换为优雅的浅蓝渐变纯色背景 */
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* 欢迎文字容器 */
+        .welcome-container {
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 中文欢迎语 - 调整配色适配纯色背景 */
+        .welcome-cn {
+            font-size: 42px;
+            font-weight: 500;
+            color: #2c3e50; /* 深灰色更易读 */
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        /* 英文欢迎语 */
+        .welcome-en {
+            font-size: 24px;
+            font-weight: 400;
+            color: #34495e; /* 中灰色 */
+            letter-spacing: 1px;
+            font-family: "Arial", sans-serif;
+        }
+
+        /* 邮箱信息 - 固定右下角 */
+        .email-info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 16px;
+            color: #7f8c8d; /* 浅灰色 */
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        /* 淡入动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 小屏幕适配 */
+        @media (max-width: 768px) {
+            .welcome-cn {
+                font-size: 28px;
+            }
+            .welcome-en {
+                font-size: 18px;
+            }
+            .email-info {
+                font-size: 14px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 欢迎文字容器 -->
+    <div class="welcome-container">
+        <div class="welcome-cn">宋先生，您好，欢迎光临</div>
+        <div class="welcome-en">Hello Mr. Song, welcome</div>
+    </div>
+
+    <!-- 邮箱信息 -->
+    <div class="email-info">sonefly@gmail.com</div>
+</body>
+</html>
