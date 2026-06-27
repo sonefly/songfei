@@ -3,96 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎首页</title>
+    <title>数字智能门户</title>
     <style>
-        /* 页面基础样式 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", sans-serif;
+            font-family: "Orbitron", system-ui, sans-serif;
         }
-
-        /* 页面布局 - 移除背景图片，改用纯色渐变背景 */
         body {
-            min-height: 100vh;
-            /* 替换为优雅的浅蓝渐变纯色背景 */
-            background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #001025 0%, #000309 100%);
+            color: #ffffff;
             position: relative;
-            padding: 20px;
         }
-
-        /* 欢迎文字容器 */
-        .welcome-container {
-            opacity: 0;
-            animation: fadeIn 1.2s ease forwards;
-            position: relative;
-            z-index: 2;
+        /* 网格背景 */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 160, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 160, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.6;
+            z-index: 0;
         }
-
-        /* 中文欢迎语 - 调整配色适配纯色背景 */
-        .welcome-cn {
-            font-size: 42px;
-            font-weight: 500;
-            color: #2c3e50; /* 深灰色更易读 */
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+        /* 动态扫描光带 */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent,#00e5ff,transparent);
+            animation: scan 4s linear infinite;
+            z-index: 1;
         }
-
-        /* 英文欢迎语 */
-        .welcome-en {
-            font-size: 24px;
-            font-weight: 400;
-            color: #34495e; /* 中灰色 */
-            letter-spacing: 1px;
-            font-family: "Arial", sans-serif;
+        @keyframes scan {
+            0% {top:0; opacity:0}
+            50% {opacity:1}
+            100% {top:100vh; opacity:0}
         }
-
-        /* 邮箱信息 - 固定右下角 */
-        .email-info {
+        /* 漂浮粒子光点 */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: #00ffdd;
+            box-shadow: 0 0 10px #00ffdd;
+            animation: float 8s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%,100% {transform: translateY(0);}
+            50% {transform: translateY(-30px);}
+        }
+        /* 顶部状态栏 */
+        .top-bar {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 16px;
-            color: #7f8c8d; /* 浅灰色 */
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 10px 30px;
+            background: rgba(0,40,80,0.2);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(0,200,255,0.25);
+            border-radius: 8px;
             z-index: 2;
-            opacity: 0.9;
         }
-
-        /* 淡入动画 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .top-item {
+            font-size: 14px;
+            color: #88ccff;
         }
-
-        /* 小屏幕适配 */
-        @media (max-width: 768px) {
-            .welcome-cn {
-                font-size: 28px;
-            }
-            .welcome-en {
-                font-size: 18px;
-            }
-            .email-info {
-                font-size: 14px;
-                bottom: 15px;
-                right: 15px;
-            }
+        .top-item span {
+            color: #00ffdd;
+        }
+        /* 动态时钟样式 */
+        .clock-box {
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #00e5ff;
+            text-shadow: 0 0 8px #00e5ff;
+            text-align: right;
+            line-height: 1.5;
+        }
+        /* 左侧系统信息面板 */
+        .left-info {
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 22px;
+            background: rgba(0,40,80,0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0,200,255,0.3);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,170,255,0.2);
+            z-index: 2;
+        }
+        .left-title {
+            font-size: 18px;
+            color: #00e5ff;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0,200,255,0.3);
+        }
+        .info-row {
+            font-size: 14px;
+            color: #b8e8ff;
+            line-height: 2.2;
+        }
+        .info-row label {
+            color: #6699bb;
+            width: 90px;
+            display: inline-block;
+        }
+        .info-row span {
+            color: #00ffdd;
+        }
+        /* 中间主区域 */
+        .center-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+        .main-text {
+            font-size: 56px;
+            letter-spacing: 12px;
+            color: #00e5ff;
+            text-shadow: 0 0 8px #00e5ff, 0 0 24px #0088ff;
+            margin-bottom: 20px;
+        }
+        .sub-text {
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: #88ccff;
+            text-shadow: 0 0 6px #0066ff;
+            margin-bottom: 30px;
+        }
+        .divider {
+            width: 300px;
+            height: 1px;
+            margin: 0 auto 30px;
+            background: linear-gradient(90deg, transparent,#00e5ff,transparent);
+        }
+        .desc-text {
+            font-size: 16px;
+            color: #a0d8ff;
+            line-height: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* 底部滚动日志栏 */
+        .log-bar {
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(0,200,255,0.2);
+            border-radius: 6px;
+            background: rgba(0,20,40,0.3);
+            z-index: 2;
+        }
+        .log-text {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            color: #77bbee;
+            animation: scrollLog 20s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes scrollLog {
+            0% {transform: translateX(100%);}
+            100% {transform: translateX(-100%);}
+        }
+        /* 右下角访问统计面板 */
+        .visit-box {
+            position: fixed;
+            right: 40px;
+            bottom: 130px;
+            padding: 18px 24px;
+            background: rgba(0, 40, 80, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+            font-size: 17px;
+            line-height: 28px;
+            color: #b8e8ff;
+            z-index: 2;
+        }
+        #busuanzi_value_site_uv, #busuanzi_value_page_pv {
+            color: #00ffdd;
+            text-shadow: 0 0 6px #00ffdd;
+            font-weight: bold;
+        }
+        /* 邮箱底部文字 */
+        .mail-text {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            color: #6699bb;
+            font-size: 14px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        /* 侧边圆形头像框 */
+        .avatar {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 1px solid #00ccff;
+            box-shadow: 0 0 10px #0099ff44;
+            background: rgba(0, 50, 100, 0.2);
+            z-index: 2;
         }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 欢迎文字容器 -->
-    <div class="welcome-container">
-        <div class="welcome-cn">宋先生，您好，欢迎光临</div>
-        <div class="welcome-en">Hello Mr. Song, welcome</div>
+    <!-- 扫描线动画 -->
+    <div class="scan-line"></div>
+    <!-- 漂浮粒子光点 -->
+    <div class="particle" style="width:6px;height:6px;left:15%;top:20%;animation-delay:0s"></div>
+    <div class="particle" style="width:4px;height:4px;left:80%;top:30%;animation-delay:2s"></div>
+    <div class="particle" style="width:5px;height:5px;left:25%;top:70%;animation-delay:4s"></div>
+    <div class="particle" style="width:3px;height:3px;left:70%;top:60%;animation-delay:6s"></div>
+
+    <!-- 顶部状态栏 + 完整动态时钟 -->
+    <div class="top-bar">
+        <div class="top-item">系统状态：<span>运行正常</span></div>
+        <div class="top-item">当前时区：<span>UTC+8</span></div>
+        <div class="top-item">安全等级：<span>LV.5</span></div>
+        <div class="clock-box" id="digitalClock"></div>
     </div>
 
-    <!-- 邮箱信息 -->
-    <div class="email-info">sonefly@gmail.com</div>
+    <!-- 左侧系统参数面板 -->
+    <div class="left-info">
+        <div class="left-title">系统参数</div>
+        <div class="info-row"><label>服务器ID</label><span>NODE-20260627</span></div>
+        <div class="info-row"><label>在线时长</label><span>9987h 26m</span></div>
+        <div class="info-row"><label>带宽负载</label><span>18.6%</span></div>
+        <div class="info-row"><label>存储剩余</label><span>72.3TB</span></div>
+        <div class="info-row"><label>加密协议</label><span>AES-256</span></div>
+    </div>
+
+    <!-- 侧边头像 -->
+    <div class="avatar"></div>
+
+    <!-- 页面中心主体内容 -->
+    <div class="center-wrap">
+        <h1 class="main-text">WELCOME DIGITAL PORTAL</h1>
+        <p class="sub-text">INTELLIGENT ACCESS SYSTEM</p>
+        <div class="divider"></div>
+        <p class="desc-text">
+            全域数字化智能交互终端 · 分布式云端接入平台<br>
+            全域数据实时同步｜多层加密传输｜全天候稳定值守<br>
+            标准化数字接口，高效、安全、轻量化访问通道
+        </p>
+    </div>
+
+    <!-- 底部滚动系统日志 -->
+    <div class="log-bar">
+        <div class="log-text">[SYSTEM] 2026-06-27 21:00 数据同步完成 | [SAFE] 无异常访问记录 | [NETWORK] 链路延迟稳定 12ms | [CACHE] 缓存池刷新成功 | [AUTH] 身份校验模块待命 </div>
+    </div>
+
+    <!-- 右下角访问统计面板 -->
+    <div class="visit-box">
+        独立访客：<span id="busuanzi_value_site_uv"></span> 位<br>
+        页面访问：<span id="busuanzi_value_page_pv"></span> 次
+    </div>
+
+    <!-- 底部邮箱 -->
+    <div class="mail-text">sonefly@gmail.com</div>
+
+    <!-- 访问统计脚本 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- 完整动态时钟脚本（年月日+星期+时分秒毫秒） -->
+    <script>
+        const clockDom = document.getElementById('digitalClock');
+        const weekArr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        // 数字补零
+        function padZero(num, len = 2) {
+            return num.toString().padStart(len, '0');
+        }
+        // 更新完整时间
+        function updateClock() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = padZero(now.getMonth() + 1);
+            const day = padZero(now.getDate());
+            const week = weekArr[now.getDay()];
+            const h = padZero(now.getHours());
+            const m = padZero(now.getMinutes());
+            const s = padZero(now.getSeconds());
+            const ms = padZero(now.getMilliseconds(), 2);
+            clockDom.innerHTML = `
+                ${year}-${month}-${day} ${week}<br>
+                ${h}:${m}:${s}.${ms}
+            `;
+        }
+        setInterval(updateClock, 10);
+        updateClock();
+    </script>
 </body>
 </html>
