@@ -2,18 +2,22 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 全球访问国际化适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="共护世界和平 Peace For All，面向全球民众传播反战与和平理念，呼吁各国人民彼此包容、以对话化解冲突">
-    <meta name="keywords" content="世界和平,反战,人道主义,Peace For All,全球和平倡议">
+    <!-- 国际SEO社交标签 -->
+    <meta property="og:title" content="共护世界和平 Peace For All">
+    <meta property="og:description" content="面向全球民众的民间和平理念宣传页面，仅作思想传播，无慈善募捐资质">
     <meta property="og:locale" content="zh_CN">
-    <title>共护世界和平 · Peace For All | 面向全球民众的和平宣传平台</title>
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="keywords" content="世界和平,反战,人文理念,Peace For All,RSS和平资讯">
+    <title>共护世界和平 · Peace For All | 全球民间和平宣传页</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            /* 全球兼容字体栈 */
+            font-family: "Microsoft YaHei", PingFang SC, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
         }
         body {
             background: linear-gradient(135deg, #e6f4ff, #f0f9ff);
@@ -42,8 +46,21 @@
         .sub-title {
             font-size: 21px;
             color: #446896;
-            margin-bottom: 55px;
+            margin-bottom: 20px;
             letter-spacing: 3px;
+        }
+        /* 全站前置合规免责提示 */
+        .global-top-notice {
+            background: #fff0cc;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+        }
+        .global-top-notice p {
+            margin: 0;
+            text-align: center;
+            font-size: 16px;
+            color: #915c00;
         }
         .content-card {
             background: rgba(255,255,255,0.88);
@@ -113,7 +130,6 @@
             color: #c83232;
             font-weight: 500;
         }
-        /* 全局图片样式 适配全球网络 */
         .peace-img {
             width: 100%;
             border-radius: 14px;
@@ -121,11 +137,82 @@
             object-fit: cover;
             min-height: 320px;
         }
-        /* 站点运营支持模块 */
+
+        /* ===================== 新增：图片横向自动滚动轮播 ===================== */
+        .scroll-wrap {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 18px;
+            margin: 42px 0;
+            background: #e8f2fe;
+            padding: 20px 0;
+        }
+        .scroll-title {
+            font-size: 22px;
+            color: #1a4b8c;
+            margin-bottom: 20px;
+        }
+        .scroll-box {
+            display: flex;
+            gap: 24px;
+            white-space: nowrap;
+            animation: scrollLoop 30s linear infinite;
+        }
+        .scroll-wrap:hover .scroll-box {
+            animation-play-state: paused;
+        }
+        .scroll-item {
+            width: 320px;
+            height: 200px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+        @keyframes scrollLoop {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(-50%);}
+        }
+        /* ====================================================================== */
+
+        /* RSS订阅模块样式 */
+        .rss-block {
+            background: #f0f7ff;
+            padding: 40px 36px;
+            border-radius: 18px;
+            margin: 42px 0;
+            text-align: left;
+        }
+        .rss-block h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .rss-item {
+            padding: 18px;
+            background: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(45, 125, 207, 0.08);
+        }
+        .rss-item h4 {
+            color: #205999;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+        .rss-desc {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 12px;
+        }
+        .rss-link {
+            word-break: break-all;
+            color: #2d7dcf;
+            text-decoration: underline;
+        }
+        /* 资助板块弱化样式，降低视觉权重 */
         .support-block {
-            margin-top: 75px;
-            padding: 32px;
-            background:#f7fbff;
+            margin-top: 80px;
+            padding: 28px;
+            background:#f2f7fc;
             border-radius:16px;
             text-align:left;
         }
@@ -133,7 +220,7 @@
             color:#205999;
             margin-bottom:18px;
             text-align:center;
-            font-size:25px;
+            font-size:23px;
         }
         .link-style {
             color:#2d7dcf;
@@ -162,7 +249,26 @@
             color: #666;
             line-height:1.7;
         }
-        /* 移动端、海外小屏设备适配 */
+        /* 深色模式全球适配 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #0f1c2b, #142436);
+                color: #eee;
+            }
+            .content-card, .rss-item {
+                background: rgba(30, 48, 70, 0.9);
+            }
+            p, .rss-desc {
+                color: #e6e6e6;
+            }
+            .scroll-wrap {
+                background: #1c3048;
+            }
+            .scroll-title {
+                color: #cce0f5;
+            }
+        }
+        /* 移动端适配 */
         @media(max-width: 640px) {
             h1 {
                 font-size: 30px;
@@ -170,7 +276,7 @@
             .peace-icon {
                 font-size: 64px;
             }
-            .content-card {
+            .content-card, .rss-block {
                 padding: 28px 20px;
             }
             .support-block {
@@ -179,62 +285,126 @@
             .peace-img {
                 min-height: 220px;
             }
+            .scroll-item {
+                width: 220px;
+                height: 140px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 顶部主标题 全球和平主题 -->
+        <!-- 页面顶部强制合规免责（核心风控） -->
+        <div class="global-top-notice">
+            <p>⚠ 全站重要声明：本站仅为民间和平理念宣传页面，运营人为普通自然人，未取得任何国家慈善公开募捐资质。页面内所有人道救助仅为理念呼吁，本站不接收任何用于难民、战乱救助的公益资金；若您有意开展人道援助，请联系各国本地官方持证公益机构。</p>
+        </div>
+
         <div class="peace-icon">☮</div>
         <h1>共护世界和平</h1>
-        <div class="sub-title">Peace For All · 面向全球每一位民众的和平倡议</div>
+        <div class="sub-title">Peace For All · 面向全球每一位民众的和平理念分享</div>
 
-        <!-- 全球访客友好提示 -->
         <div class="global-tip">
             <p>无论您来自哪个国家、拥有何种信仰，都欢迎在此一同传递和平之声</p>
         </div>
 
-        <!-- 一、和平愿景（全球化文案） -->
+        <!-- 一、和平愿景板块 -->
         <div class="content-card">
             <h2>我们的和平愿景 <span class="eng-decor">Vision of Peace</span></h2>
             <img class="peace-img" src="https://picsum.photos/id/1036/1400/550" alt="白鸽环绕地球，象征全人类和平">
             <p>战火不分国界，苦难覆盖所有族群。冲突之下，世界各地的平民都会被迫离开故土，孩童失去安稳的成长环境，老人失去依靠，无数普通人终日活在恐惧、饥饿与伤痛之中。</p>
-            <p>本平台面向全球所有人民发起和平倡议，不分国籍、种族、肤色、宗教与文明。我们呼吁全人类放下对立、摒弃仇恨，以平等对话替代武力冲突，用包容理解消解地域隔阂，携手搭建属于全体地球人的和平桥梁。</p>
+            <p>本平台面向全球所有人民分享和平理念，不分国籍、种族、肤色、宗教与文明。我们呼吁全人类放下对立、摒弃仇恨，以平等对话替代武力冲突，用包容理解消解地域隔阂，携手搭建属于全体地球人的和平桥梁。</p>
             <p>和平从来不是单一国家、单一民族的追求，而是全球七十亿人共同的期盼。一份善意不分大小，跨越山海抵达任何一片土地，都能为平息冲突、守护安宁增添力量。</p>
         </div>
 
-        <!-- 二、三大和平行动（适配全球各地场景） -->
+        <!-- 二、三大和平理念倡议板块 -->
         <div class="content-card">
-            <h2>和平公益三大行动 <span class="eng-decor">Peace Initiatives</span></h2>
+            <h2>三大和平理念倡议 <span class="eng-decor">Peace Initiatives</span></h2>
             <img class="peace-img" src="https://picsum.photos/id/240/1400/550" alt="世界各地孩童牵手相拥，代表多元文明和解">
             <div class="list-box">
-                <h3>一、全球战乱地区人道救助</h3>
-                <li>为全球各地冲突区域的难民输送净水、应急口粮、基础医疗物资与御寒用品；</li>
-                <li>倡导搭建临时安置场所，保护战区妇女、儿童、孤寡弱势群体安全；</li>
-                <li>支持跨国医疗志愿力量深入冲突地带，免费救治受伤平民。</li>
+                <h3>一、关注全球冲突地区人道困境</h3>
+                <li>关注全球各地冲突区域难民生存现状，倡导社会各界给予弱势群体关怀；</li>
+                <li>呼吁社会为战区妇女、儿童、孤寡老人提供更多安全层面的关注；</li>
+                <li>支持跨国医疗志愿力量进入冲突地带，为受伤平民提供救治帮助。</li>
 
-                <h3>二、跨国家和平普及教育</h3>
-                <li>面向全球战乱地区少年儿童开展反战、包容、友善主题公益课堂；</li>
-                <li>制作多国语言和平科普内容，消除种族偏见、文明误解与地域对立；</li>
-                <li>组织跨国青少年线上交流活动，让不同国家的年轻人建立友好联结。</li>
+                <h3>二、推广跨国家包容教育思想</h3>
+                <li>面向全球战乱地区少年儿童传播反战、包容、友善的思想；</li>
+                <li>分享多国和平科普内容，消除种族偏见、文明误解与地域对立；</li>
+                <li>倡导跨国青少年线上交流，让不同国家的年轻人建立友好联结。</li>
 
-                <h3>三、多元文明和解交流项目</h3>
-                <li>推动全球不同民族、不同文明之间文化互通，减少认知偏差与矛盾；</li>
+                <h3>三、推动多元文明平等交流</h3>
+                <li>促进全球不同民族、不同文明之间文化互通，减少认知偏差与矛盾；</li>
                 <li>记录全球各地战争受害者真实经历，向全世界传递反对战争的心声；</li>
                 <li>倡导世界各国优先使用外交协商解决分歧，反对一切暴力武装冲突。</li>
             </div>
         </div>
 
-        <!-- 正规人道捐助区分提示（面向海内外访客） -->
+        <!-- 正规公益渠道区分提示 -->
         <div class="donate-tip">
-            <h3>人道捐助渠道说明</h3>
-            <p>如果您希望向全球战乱地区难民提供实质性人道援助，请选择各国本地官方注册、具备完整资质的公益慈善机构对公渠道捐赠，所有正规机构会全程公开资金流向与救助明细，保障每一份善意落地。</p>
-            <p class="warn-text">⚠ 重要全球提醒：任何个人私下收款链接、私人境外账户若宣称用于难民救助募捐，均存在极大诈骗风险，各国金融监管均不认可此类募捐方式，请谨慎辨别，切勿随意转账。</p>
+            <h3>人道援助正规渠道提示</h3>
+            <p>如果您希望向全球战乱地区难民提供实质性人道援助，请选择各国本地官方注册、具备完整资质的公益慈善机构对公渠道，所有正规机构会全程公开资金流向与救助明细，保障每一份善意落地。</p>
+            <p class="warn-text">⚠ 全球通用提醒：任何个人私下收款链接、私人境外账户若宣称用于难民救助募捐，均存在极大诈骗风险，各国金融监管均不认可此类募捐方式，请谨慎辨别，切勿随意转账。</p>
+        </div>
+
+        <!-- 新增：自动无限滚动和平图片栏 -->
+        <div class="scroll-wrap">
+            <div class="scroll-title">和平人文纪实影像 <span style="font-size:16px;color:#777;">Peace Gallery</span></div>
+            <div class="scroll-box">
+                <!-- 第一组图片 -->
+                <img class="scroll-item" src="https://picsum.photos/id/1036/600/400" alt="白鸽和平">
+                <img class="scroll-item" src="https://picsum.photos/id/240/600/400" alt="孩童牵手">
+                <img class="scroll-item" src="https://picsum.photos/id/1048/600/400" alt="日出希望">
+                <img class="scroll-item" src="https://picsum.photos/id/1060/600/400" alt="海边安宁">
+                <img class="scroll-item" src="https://picsum.photos/id/1068/600/400" alt="自然和平风景">
+                <img class="scroll-item" src="https://picsum.photos/id/1043/600/400" alt="大地温柔光影">
+                <!-- 复制一遍实现无缝循环 -->
+                <img class="scroll-item" src="https://picsum.photos/id/1036/600/400" alt="白鸽和平">
+                <img class="scroll-item" src="https://picsum.photos/id/240/600/400" alt="孩童牵手">
+                <img class="scroll-item" src="https://picsum.photos/id/1048/600/400" alt="日出希望">
+                <img class="scroll-item" src="https://picsum.photos/id/1060/600/400" alt="海边安宁">
+                <img class="scroll-item" src="https://picsum.photos/id/1068/600/400" alt="自然和平风景">
+                <img class="scroll-item" src="https://picsum.photos/id/1043/600/400" alt="大地温柔光影">
+            </div>
+        </div>
+
+        <!-- 和平人文资讯 RSS 订阅板块 -->
+        <div class="rss-block">
+            <h2>和平与人道资讯 RSS 订阅 <span class="eng-decor">Peace News RSS Feeds</span></h2>
+            <p>您可以复制下方RSS源链接，导入阅读器持续关注全球冲突、人道主义、和平外交相关实时资讯，持续了解各地和平发展现状。</p>
+
+            <div class="rss-item">
+                <h4>联合国人道主义新闻（UN Humanitarian）</h4>
+                <div class="rss-desc">全球难民、战乱救援、人道危机官方实时资讯，覆盖全世界冲突地区动态</div>
+                <a class="rss-link" target="_blank" rel="noopener noreferrer" href="https://news.un.org/feed/subscription/en/news/humanitarian/rss.xml">https://news.un.org/feed/subscription/en/news/humanitarian/rss.xml</a>
+            </div>
+
+            <div class="rss-item">
+                <h4>联合国和平与安全议题</h4>
+                <div class="rss-desc">安理会、全球冲突调解、维和行动、外交和解相关官方报道</div>
+                <a class="rss-link" target="_blank" rel="noopener noreferrer" href="https://news.un.org/feed/subscription/en/news/peace-security/rss.xml">https://news.un.org/feed/subscription/en/news/peace-security/rss.xml</a>
+            </div>
+
+            <div class="rss-item">
+                <h4>红十字国际委员会 ICRC 人道资讯</h4>
+                <div class="rss-desc">战争平民保护、战地医疗、战俘与人道法相关报道</div>
+                <a class="rss-link" target="_blank" rel="noopener noreferrer" href="https://www.icrc.org/en/rss/all">https://www.icrc.org/en/rss/all</a>
+            </div>
+
+            <div class="rss-item">
+                <h4>国内国际和平与全球时事资讯</h4>
+                <div class="rss-desc">中文视角国际冲突、多边外交、全球包容发展资讯</div>
+                <a class="rss-link" target="_blank" rel="noopener noreferrer" href="https://www.rssboard.org/china-world-news-rss">https://www.rssboard.org/china-world-news-rss</a>
+            </div>
+
+            <div class="rss-item">
+                <h4>全球儿童和平教育资讯</h4>
+                <div class="rss-desc">战区儿童保护、反战教育、青少年跨文化交流内容</div>
+                <a class="rss-link" target="_blank" rel="noopener noreferrer" href="https://www.unicef.org/media/rss.xml">https://www.unicef.org/media/rss.xml</a>
+            </div>
         </div>
 
         <!-- 全球和平呼吁板块 -->
         <div class="content-card">
-            <h2>致全世界人民的和平呼吁 <span class="eng-decor">Global Peace Appeal</span></h2>
+            <h2>致全世界人民的和平心声 <span class="eng-decor">Global Peace Appeal</span></h2>
             <img class="peace-img" src="https://picsum.photos/id/1048/1400/550" alt="全球日出，象征和平希望普照大地">
             <p>我们代表所有向往安宁的普通人，向全球发出呐喊：拒绝暴力、拒绝战争、拒绝无休止的仇恨与对抗。</p>
             <p>愿全球各地的枪炮归于沉寂，所有国家的孩童都能自由欢笑，每一座城市、每一个小镇都拥有长久安稳的灯火。</p>
@@ -242,4 +412,30 @@
             <p>和平，是全体地球人不分国界、不分种族，共同的终极追求。</p>
         </div>
 
-        
+        <!-- 底部弱化：站点运维自愿资助（合规重写） -->
+        <div class="support-block">
+            <h3>站点运维自愿资助 <span class="eng-decor">Voluntary Site Support</span></h3>
+            <p>本站为免费民间理念分享页面，无任何付费服务。长期线上展示需要持续承担域名年费、海外服务器租赁、图文素材更新等固定成本。如您认可本站免费分享和平思想的行为，可自愿小额资助站点日常运维，所有资助完全自愿，无任何实物、服务回报。</p>
+            <p>运维资助渠道（仅私人转账，不代表慈善募捐）：<a href="https://wise.com/pay/me/feis151" target="_blank" rel="noopener noreferrer" class="link-style">https://wise.com/pay/me/feis151</a></p>
+            <p>转账备注统一填写：Site Server Cost</p>
+            <div class="eng-note">
+                Note for global visitors: This channel only accepts voluntary funds to cover website server and domain expenses. It is not a charitable donation channel for war relief. If you want to make humanitarian donations, please contact formal local charity organizations in your country.
+            </div>
+            <div class="notice-box">
+                <p class="warn-text">⚠ 全球合规免责声明：
+                1. 运营人为普通自然人，未取得任何国家慈善公开募捐许可，本渠道资金仅用于网站域名、服务器运维支出，绝不流入难民救助、和平公益项目；
+                2. Wise个人账户仅允许私人亲友转账，公开页面仅作渠道告知，大量跨境陌生转账会触发平台风控、银行外汇核查，资金存在退回、冻结风险；
+                3. 所有资助收入将完整留存转账流水，依法完成个人收入税务申报，每年在本页面公示站点收支明细；
+                4. 若您有意向战乱地区提供人道救助，请务必选择各国官方持证慈善组织对公渠道，规避各类资金诈骗与法律风险。
+                </p>
+            </div>
+        </div>
+
+        <!-- 页脚国际化合规声明 -->
+        <div class="footer-text">
+            © 共护世界和平 Peace For All 全球民间和平宣传页面<br>
+            本页面仅用于和平人文理念传播，无任何慈善募捐资质；所有自愿站点资助仅覆盖网站基础运维开销
+        </div>
+    </div>
+</body>
+</html>
