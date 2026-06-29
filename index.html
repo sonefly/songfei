@@ -2,163 +2,264 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>共护世界和平 · 人道救助公益</title>
+    <!-- 全球访问国际化适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="共护世界和平 Peace For All，面向全球民众传播反战与和平理念，呼吁各国人民彼此包容、以对话化解冲突">
+    <meta name="keywords" content="世界和平,反战,人道主义,Peace For All,全球和平倡议">
+    <meta property="og:locale" content="zh_CN">
+    <title>共护世界和平 · Peace For All | 面向全球民众的和平宣传平台</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", sans-serif;
+            font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
         }
         body {
             background: linear-gradient(135deg, #e6f4ff, #f0f9ff);
             min-height: 100vh;
-            padding: 60px 20px;
+            padding: 60px 16px;
             color: #222;
+            line-height: 1.75;
         }
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             text-align: center;
         }
         .peace-icon {
-            font-size: 80px;
+            font-size: 86px;
             color: #2d7dcf;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
         h1 {
-            font-size: 42px;
+            font-size: 44px;
             color: #1a4b8c;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             line-height: 1.3;
+            font-weight: 600;
         }
         .sub-title {
-            font-size: 20px;
+            font-size: 21px;
             color: #446896;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
+            margin-bottom: 55px;
+            letter-spacing: 3px;
         }
         .content-card {
-            background: rgba(255,255,255,0.85);
-            border-radius: 16px;
-            padding: 45px 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(45, 125, 207, 0.12);
+            background: rgba(255,255,255,0.88);
+            border-radius: 18px;
+            padding: 48px 42px;
+            margin-bottom: 42px;
+            box-shadow: 0 6px 24px rgba(45, 125, 207, 0.13);
         }
         h2 {
             color: #245b99;
-            margin-bottom: 25px;
-            font-size: 26px;
+            margin-bottom: 26px;
+            font-size: 27px;
+        }
+        .eng-decor {
+            font-size: 18px;
+            color: #7088a8;
+            font-weight: normal;
+            margin-left: 10px;
         }
         p {
             font-size: 17px;
-            line-height: 1.8;
+            line-height: 1.85;
             color: #333;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             text-align: justify;
+        }
+        .global-tip {
+            background: #edf6ff;
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .global-tip p {
+            text-align: center;
+            margin: 0;
+            font-size: 16px;
+            color: #205999;
         }
         .list-box {
             text-align: left;
-            margin: 30px 0;
+            margin: 32px 0;
         }
         .list-box h3 {
             color: #2d7dcf;
-            margin: 20px 0 10px;
+            margin: 22px 0 12px;
+            font-size: 20px;
         }
         .list-box li {
-            line-height: 1.7;
-            margin: 8px 0;
-            padding-left: 8px;
+            line-height: 1.75;
+            margin: 10px 0;
+            padding-left: 10px;
+            font-size: 16px;
         }
         .donate-tip {
             background: #d8edff;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 40px 0;
+            padding: 28px;
+            border-radius: 14px;
+            margin: 42px 0;
         }
         .donate-tip h3 {
             color: #1a589c;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            font-size: 22px;
         }
         .warn-text {
             color: #c83232;
             font-weight: 500;
         }
+        /* 全局图片样式 适配全球网络 */
+        .peace-img {
+            width: 100%;
+            border-radius: 14px;
+            margin: 28px 0;
+            object-fit: cover;
+            min-height: 320px;
+        }
+        /* 站点运营支持模块 */
+        .support-block {
+            margin-top: 75px;
+            padding: 32px;
+            background:#f7fbff;
+            border-radius:16px;
+            text-align:left;
+        }
+        .support-block h3 {
+            color:#205999;
+            margin-bottom:18px;
+            text-align:center;
+            font-size:25px;
+        }
+        .link-style {
+            color:#2d7dcf;
+            word-break: break-all;
+            text-decoration: underline;
+        }
+        .link-style:hover {
+            color:#1a4b8c;
+        }
+        .notice-box {
+            margin-top:24px;
+            padding:18px;
+            background:#fff3f3;
+            border-radius:12px;
+        }
+        .eng-note {
+            margin-top: 16px;
+            padding-top:16px;
+            border-top: 1px solid #cce0f5;
+            font-size:15px;
+            color:#444;
+        }
         .footer-text {
-            margin-top: 60px;
+            margin-top: 65px;
             font-size: 15px;
             color: #666;
+            line-height:1.7;
         }
-        /* 移动端适配 */
-        @media(max-width: 600px) {
+        /* 移动端、海外小屏设备适配 */
+        @media(max-width: 640px) {
             h1 {
-                font-size: 28px;
+                font-size: 30px;
             }
             .peace-icon {
-                font-size: 60px;
+                font-size: 64px;
             }
             .content-card {
-                padding: 25px 20px;
+                padding: 28px 20px;
+            }
+            .support-block {
+                padding:22px 16px;
+            }
+            .peace-img {
+                min-height: 220px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 和平标识区域 -->
+        <!-- 顶部主标题 全球和平主题 -->
         <div class="peace-icon">☮</div>
-        <h1>共护世界和平 · 守护每一个生命</h1>
-        <div class="sub-title">Peace For All | 停止战火，拥抱安宁</div>
+        <h1>共护世界和平</h1>
+        <div class="sub-title">Peace For All · 面向全球每一位民众的和平倡议</div>
 
-        <!-- 核心主旨板块 -->
-        <div class="content-card">
-            <h2>我们的和平愿景</h2>
-            <p>硝烟会撕裂家园，炮火会击碎孩童的梦想。战乱之中，无数平民流离失所，孩童失去课堂，老人失去庇护，普通人挣扎在饥饿与恐惧之中。</p>
-            <p>我们发起和平公益倡议，不分种族、不分国界、不分信仰，呼吁全人类放下对立与仇恨，以对话代替冲突，以包容化解矛盾，用善意搭建跨越地域的和平桥梁。</p>
-            <p>和平从不是一句空洞口号，它是难民手中一份温热食物，是战区儿童一间安全教室，是破碎家庭得以重逢的希望。每一个普通人的善意，都能为世界和平增添一份力量。</p>
+        <!-- 全球访客友好提示 -->
+        <div class="global-tip">
+            <p>无论您来自哪个国家、拥有何种信仰，都欢迎在此一同传递和平之声</p>
         </div>
 
-        <!-- 三大公益行动板块 -->
+        <!-- 一、和平愿景（全球化文案） -->
         <div class="content-card">
-            <h2>和平公益三大行动</h2>
+            <h2>我们的和平愿景 <span class="eng-decor">Vision of Peace</span></h2>
+            <img class="peace-img" src="https://picsum.photos/id/1036/1400/550" alt="白鸽环绕地球，象征全人类和平">
+            <p>战火不分国界，苦难覆盖所有族群。冲突之下，世界各地的平民都会被迫离开故土，孩童失去安稳的成长环境，老人失去依靠，无数普通人终日活在恐惧、饥饿与伤痛之中。</p>
+            <p>本平台面向全球所有人民发起和平倡议，不分国籍、种族、肤色、宗教与文明。我们呼吁全人类放下对立、摒弃仇恨，以平等对话替代武力冲突，用包容理解消解地域隔阂，携手搭建属于全体地球人的和平桥梁。</p>
+            <p>和平从来不是单一国家、单一民族的追求，而是全球七十亿人共同的期盼。一份善意不分大小，跨越山海抵达任何一片土地，都能为平息冲突、守护安宁增添力量。</p>
+        </div>
+
+        <!-- 二、三大和平行动（适配全球各地场景） -->
+        <div class="content-card">
+            <h2>和平公益三大行动 <span class="eng-decor">Peace Initiatives</span></h2>
+            <img class="peace-img" src="https://picsum.photos/id/240/1400/550" alt="世界各地孩童牵手相拥，代表多元文明和解">
             <div class="list-box">
-                <h3>一、战乱地区人道救助</h3>
-                <li>为冲突地区难民输送饮用水、应急食品、基础药品、保暖物资；</li>
-                <li>搭建临时安置点，为妇女、儿童、孤寡老人提供安全庇护；</li>
-                <li>支持医疗志愿者深入战区，救治受伤平民。</li>
+                <h3>一、全球战乱地区人道救助</h3>
+                <li>为全球各地冲突区域的难民输送净水、应急口粮、基础医疗物资与御寒用品；</li>
+                <li>倡导搭建临时安置场所，保护战区妇女、儿童、孤寡弱势群体安全；</li>
+                <li>支持跨国医疗志愿力量深入冲突地带，免费救治受伤平民。</li>
 
-                <h3>二、全球和平教育推广</h3>
-                <li>面向冲突地区儿童开展反战、包容、友善主题课堂；</li>
-                <li>制作多语言和平科普读物，消除种族偏见与地域隔阂；</li>
-                <li>举办线上青少年和平交流活动，搭建跨国友谊平台。</li>
+                <h3>二、跨国家和平普及教育</h3>
+                <li>面向全球战乱地区少年儿童开展反战、包容、友善主题公益课堂；</li>
+                <li>制作多国语言和平科普内容，消除种族偏见、文明误解与地域对立；</li>
+                <li>组织跨国青少年线上交流活动，让不同国家的年轻人建立友好联结。</li>
 
-                <h3>三、文明和解交流项目</h3>
-                <li>推动不同民族、不同文明文化交流，减少误解与对立；</li>
-                <li>记录战争受害者真实故事，向全球传递反战心声；</li>
-                <li>倡导各国坚持外交协商，反对武力冲突。</li>
+                <h3>三、多元文明和解交流项目</h3>
+                <li>推动全球不同民族、不同文明之间文化互通，减少认知偏差与矛盾；</li>
+                <li>记录全球各地战争受害者真实经历，向全世界传递反对战争的心声；</li>
+                <li>倡导世界各国优先使用外交协商解决分歧，反对一切暴力武装冲突。</li>
             </div>
         </div>
 
-        <!-- 合规捐赠提示（规避私人账户诈骗风险） -->
+        <!-- 正规人道捐助区分提示（面向海内外访客） -->
         <div class="donate-tip">
-            <h3>善意捐赠说明</h3>
-            <p>如需支持和平人道项目，仅通过国内正规民政注册慈善机构对公渠道捐赠，所有善款全程公开公示资金流向、救助明细。</p>
-            <p class="warn-text">⚠ 重要提醒：任何以私人银行卡、境外个人账户、私人转账链接募集和平捐款均存在诈骗风险，请提高警惕，切勿转账！</p>
+            <h3>人道捐助渠道说明</h3>
+            <p>如果您希望向全球战乱地区难民提供实质性人道援助，请选择各国本地官方注册、具备完整资质的公益慈善机构对公渠道捐赠，所有正规机构会全程公开资金流向与救助明细，保障每一份善意落地。</p>
+            <p class="warn-text">⚠ 重要全球提醒：任何个人私下收款链接、私人境外账户若宣称用于难民救助募捐，均存在极大诈骗风险，各国金融监管均不认可此类募捐方式，请谨慎辨别，切勿随意转账。</p>
         </div>
 
-        <!-- 呼吁结尾 -->
+        <!-- 全球和平呼吁板块 -->
         <div class="content-card">
-            <h2>向全世界发出和平呼吁</h2>
-            <p>我们拒绝暴力，拒绝战争，拒绝无休止的仇恨。</p>
-            <p>愿枪炮归于沉寂，愿孩童放声欢笑，愿万家灯火长久明亮。</p>
-            <p>愿人与人彼此理解，国与国平等相待，让和平之光照亮地球每一寸土地。</p>
-            <p>和平，是全人类共同的终极追求。</p>
+            <h2>致全世界人民的和平呼吁 <span class="eng-decor">Global Peace Appeal</span></h2>
+            <img class="peace-img" src="https://picsum.photos/id/1048/1400/550" alt="全球日出，象征和平希望普照大地">
+            <p>我们代表所有向往安宁的普通人，向全球发出呐喊：拒绝暴力、拒绝战争、拒绝无休止的仇恨与对抗。</p>
+            <p>愿全球各地的枪炮归于沉寂，所有国家的孩童都能自由欢笑，每一座城市、每一个小镇都拥有长久安稳的灯火。</p>
+            <p>愿不同国度的民众互相理解，世界各国平等相待，让和平的光芒照亮地球每一片大陆、每一座岛屿。</p>
+            <p>和平，是全体地球人不分国界、不分种族，共同的终极追求。</p>
         </div>
 
-        <!-- 底部声明 -->
+        <!-- 全球访客可用：站点自愿运营支持板块 -->
+        <div class="support-block">
+            <h3>站点运营自愿支持 <span class="eng-decor">Voluntary Support</span></h3>
+            <p>本平台永久免费向全球各地访客开放，持续面向全世界传播和平理念，长期维护网站服务器、更新全球反战人文内容，会产生持续的运维成本。我诚恳地希望，若您认同本站传递和平的初心，可自愿提供一笔合理金额用于站点日常运营，全球访客均可通过Wise完成支持。</p>
+            <p>全球统一支付通道：<a href="https://wise.com/pay/me/feis151" target="_blank" class="link-style">https://wise.com/pay/me/feis151</a></p>
+            <p>转账备注建议：Peace Support + 您的姓名</p>
+            <div class="eng-note">
+                Note for global visitors: This payment channel only accepts voluntary small support for website operation, not official charitable fundraising. If you want humanitarian donation for war refugees, please use formal local charity organizations in your country.
+            </div>
+            <div class="notice-box">
+                <p class="warn-text">⚠ 全球通用免责声明：该通道仅为各国网友自愿小额站点运维打赏，不属于具备合法资质的慈善募捐；本站未取得任何国家民政、公益监管机构公开募捐许可，不收取任何用于难民救助、跨国和平公益项目的捐款。若您想开展人道援助，请通过本国官方持证慈善组织对公渠道捐赠，规避金融与法律风险。</p>
+            </div>
+        </div>
+
+        <!-- 全站底部国际化声明 -->
         <div class="footer-text">
-            © 世界和平公益倡议页 | 本页面仅作和平理念宣传，无任何募捐收款权限
+            © 共护世界和平 Peace For All 全球和平宣传平台<br>
+            本页面仅面向全球民众传播和平理念，无任何国家慈善公开募捐资质，所有自愿支持仅用于网站基础运维
         </div>
     </div>
 </body>
