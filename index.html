@@ -1,151 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peace For All | 共护世界和平</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 中英双语字体 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        peaceBlue: '#244A77',
-                        softWhite: '#F7FAFF',
-                        peaceGold: '#E8C872',
-                    },
-                    fontFamily: {
-                        cn: ['"Noto Sans SC"', 'sans-serif'],
-                        en: ['"Noto Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <title>共护世界和平 · 人道救助公益</title>
     <style>
-        html {scroll-behavior: smooth;}
-        /* 和平主题首屏背景 */
-        .peace-banner {
-            background: linear-gradient(rgba(36, 74, 119, 0.8), rgba(36, 74, 119, 0.88)), url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/e3c4c1731d704b4892b9663d98cdb755.JPG~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=202606290946023FE889119D20201F92EF&rrcfp=dafada99&x-expires=2098921562&x-signature=o8%2BrSYbZYvawNb2Ied6m1tV1hV0%3D');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #e6f4ff, #f0f9ff);
+            min-height: 100vh;
+            padding: 60px 20px;
+            color: #222;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .peace-icon {
+            font-size: 80px;
+            color: #2d7dcf;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 42px;
+            color: #1a4b8c;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .sub-title {
+            font-size: 20px;
+            color: #446896;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+        .content-card {
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            padding: 45px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(45, 125, 207, 0.12);
+        }
+        h2 {
+            color: #245b99;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        .list-box {
+            text-align: left;
+            margin: 30px 0;
+        }
+        .list-box h3 {
+            color: #2d7dcf;
+            margin: 20px 0 10px;
+        }
+        .list-box li {
+            line-height: 1.7;
+            margin: 8px 0;
+            padding-left: 8px;
+        }
+        .donate-tip {
+            background: #d8edff;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        .donate-tip h3 {
+            color: #1a589c;
+            margin-bottom: 15px;
+        }
+        .warn-text {
+            color: #c83232;
+            font-weight: 500;
+        }
+        .footer-text {
+            margin-top: 60px;
+            font-size: 15px;
+            color: #666;
+        }
+        /* 移动端适配 */
+        @media(max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+            .peace-icon {
+                font-size: 60px;
+            }
+            .content-card {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
-<body class="bg-softWhite font-cn text-slate-800">
-    <!-- 首屏横幅 无导航栏 -->
-    <section class="peace-banner min-h-screen flex flex-col justify-center items-center text-white px-6 py-16">
-        <div class="max-w-4xl text-center">
-            <h1 class="text-[clamp(2rem,7vw,4.5rem)] font-en font-light tracking-wide mb-4">
-                Peace For All
-            </h1>
-            <h2 class="text-[clamp(1.4rem,4vw,2.6rem)] font-cn font-light mb-10">
-                共护世界和平
-            </h2>
-            <p class="text-xl md:text-2xl opacity-95 font-en mb-4">
-                Every donation heals wounds and brings peace to conflict zones.
-            </p>
-            <p class="text-xl md:text-2xl opacity-95 font-cn mb-14">
-                每一份捐助抚平创伤，为战乱之地带去安宁
-            </p>
-            <!-- 锚点跳转捐赠区 -->
-            <a href="#donate-block" class="inline-block bg-peaceGold text-peaceBlue px-12 py-4 rounded-full text-xl font-medium hover:bg-white transition-all duration-300 shadow-xl">
-                Donate via Wise / 通过Wise捐赠
-            </a>
-        </div>
-    </section>
+<body>
+    <div class="container">
+        <!-- 和平标识区域 -->
+        <div class="peace-icon">☮</div>
+        <h1>共护世界和平 · 守护每一个生命</h1>
+        <div class="sub-title">Peace For All | 停止战火，拥抱安宁</div>
 
-    <!-- 和平公益项目板块 中英对照 -->
-    <section class="py-20 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h3 class="text-3xl font-en text-peaceBlue mb-3">Our Peace Mission</h3>
-            <h3 class="text-3xl font-cn text-peaceBlue mb-8">我们的和平使命</h3>
+        <!-- 核心主旨板块 -->
+        <div class="content-card">
+            <h2>我们的和平愿景</h2>
+            <p>硝烟会撕裂家园，炮火会击碎孩童的梦想。战乱之中，无数平民流离失所，孩童失去课堂，老人失去庇护，普通人挣扎在饥饿与恐惧之中。</p>
+            <p>我们发起和平公益倡议，不分种族、不分国界、不分信仰，呼吁全人类放下对立与仇恨，以对话代替冲突，以包容化解矛盾，用善意搭建跨越地域的和平桥梁。</p>
+            <p>和平从不是一句空洞口号，它是难民手中一份温热食物，是战区儿童一间安全教室，是破碎家庭得以重逢的希望。每一个普通人的善意，都能为世界和平增添一份力量。</p>
         </div>
-        <div class="grid md:grid-cols-3 gap-10">
-            <!-- 项目1：战乱人道主义救助 -->
-            <div class="bg-white p-8 rounded-xl shadow-md">
-                <h4 class="text-xl font-en text-peaceBlue mb-2">Humanitarian Relief</h4>
-                <h4 class="text-xl font-cn text-peaceBlue mb-4">战乱人道主义救助</h4>
-                <p class="text-slate-600 font-en text-sm mb-2">Supply food, medicine and shelters for refugees from war-torn areas.</p>
-                <p class="text-slate-600 font-cn text-sm">为战争难民提供食物、药品与临时住所</p>
-            </div>
-            <!-- 项目2：和平教育普及 -->
-            <div class="bg-white p-8 rounded-xl shadow-md">
-                <h4 class="text-xl font-en text-peaceBlue mb-2">Peace Education</h4>
-                <h4 class="text-xl font-cn text-peaceBlue mb-4">和平教育普及</h4>
-                <p class="text-slate-600 font-en text-sm mb-2">Carry out anti-war and reconciliation courses for children in conflict regions.</p>
-                <p class="text-slate-600 font-cn text-sm">在冲突地区开展反战、和解课程，培育孩童和平理念</p>
-            </div>
-            <!-- 项目3：跨民族和解交流 -->
-            <div class="bg-white p-8 rounded-xl shadow-md">
-                <h4 class="text-xl font-en text-peaceBlue mb-2">Cross-Nation Reconciliation</h4>
-                <h4 class="text-xl font-cn text-peaceBlue mb-4">跨民族和解交流</h4>
-                <p class="text-slate-600 font-en text-sm mb-2">Organize cultural exchanges to eliminate prejudice and regional hatred.</p>
-                <p class="text-slate-600 font-cn text-sm">组织跨族群文化交流，消除偏见与地域对立</p>
+
+        <!-- 三大公益行动板块 -->
+        <div class="content-card">
+            <h2>和平公益三大行动</h2>
+            <div class="list-box">
+                <h3>一、战乱地区人道救助</h3>
+                <li>为冲突地区难民输送饮用水、应急食品、基础药品、保暖物资；</li>
+                <li>搭建临时安置点，为妇女、儿童、孤寡老人提供安全庇护；</li>
+                <li>支持医疗志愿者深入战区，救治受伤平民。</li>
+
+                <h3>二、全球和平教育推广</h3>
+                <li>面向冲突地区儿童开展反战、包容、友善主题课堂；</li>
+                <li>制作多语言和平科普读物，消除种族偏见与地域隔阂；</li>
+                <li>举办线上青少年和平交流活动，搭建跨国友谊平台。</li>
+
+                <h3>三、文明和解交流项目</h3>
+                <li>推动不同民族、不同文明文化交流，减少误解与对立；</li>
+                <li>记录战争受害者真实故事，向全球传递反战心声；</li>
+                <li>倡导各国坚持外交协商，反对武力冲突。</li>
             </div>
         </div>
-    </section>
 
-    <!-- 唯一捐赠区域：仅Wise转账（内置你的专属支付链接） -->
-    <section id="donate-block" class="bg-peaceBlue text-white py-28 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl font-en mb-4">Exclusive Donation Channel: Wise Transfer Only</h3>
-            <h3 class="text-3xl font-cn mb-12">唯一捐赠渠道：仅支持Wise国际转账</h3>
-
-            <!-- Wise账户信息 双语分栏 -->
-            <div class="bg-white/10 rounded-2xl p-10 backdrop-blur-sm mb-14">
-                <div class="grid md:grid-cols-2 gap-10 text-left">
-                    <div>
-                        <h5 class="text-xl font-en text-peaceGold mb-5">Wise Transfer Details</h5>
-                        <ul class="space-y-4 font-en text-base opacity-95">
-                            <li>Recipient Account: FEI SONG @feis151</li>
-                            <li>Wise Pay Link: https://wise.com/pay/me/feis151</li>
-                            <li>Supported Currencies: USD, EUR, GBP, CAD, CNY</li>
-                            <li>Transfer Remark: PEACE + Your Full Name</li>
-                            <li>Notice: No other payment methods available</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="text-xl font-cn text-peaceGold mb-5">Wise转账信息</h5>
-                        <ul class="space-y-4 font-cn text-base opacity-95">
-                            <li>收款人：FEI SONG 账号 @feis151</li>
-                            <li>Wise一键支付链接：https://wise.com/pay/me/feis151</li>
-                            <li>支持币种：美元、欧元、英镑、加元、人民币</li>
-                            <li>转账备注：PEACE + 您的姓名</li>
-                            <li>重要提示：本机构无任何其他捐赠渠道</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 捐赠按钮直接跳转你的专属Wise支付页 -->
-            <p class="text-lg font-en opacity-90 mb-3">Click the button below to enter the exclusive Wise donation page directly.</p>
-            <p class="text-lg font-cn opacity-90 mb-10">点击下方按钮，直达专属Wise捐赠支付页面</p>
-            <a href="https://wise.com/pay/me/feis151" target="_blank" class="inline-block bg-peaceGold text-peaceBlue px-14 py-4 rounded-full text-xl font-medium hover:bg-white transition-all shadow-2xl">
-                Donate Now via Wise / 立即Wise捐赠
-            </a>
+        <!-- 合规捐赠提示（规避私人账户诈骗风险） -->
+        <div class="donate-tip">
+            <h3>善意捐赠说明</h3>
+            <p>如需支持和平人道项目，仅通过国内正规民政注册慈善机构对公渠道捐赠，所有善款全程公开公示资金流向、救助明细。</p>
+            <p class="warn-text">⚠ 重要提醒：任何以私人银行卡、境外个人账户、私人转账链接募集和平捐款均存在诈骗风险，请提高警惕，切勿转账！</p>
         </div>
-    </section>
 
-    <!-- 底部声明 中英双语 -->
-    <footer class="py-14 px-6 bg-slate-900 text-slate-300 text-center">
-        <div class="max-w-2xl mx-auto space-y-5">
-            <p class="font-en text-sm leading-relaxed">
-                All donated funds will be fully invested in global peace humanitarian projects. We publish transparent monthly financial statements via email to all donors.
-            </p>
-            <p class="font-cn text-sm leading-relaxed">
-                所有捐赠资金全额投入全球和平人道主义项目，每月向所有捐赠人邮件发送透明收支报表
-            </p>
-            <div class="mt-10 opacity-60 text-xs space-y-2">
-                <p class="font-en">© 2026 Peace For All | Only Wise transfer link https://wise.com/pay/me/feis151 is accepted for donation</p>
-                <p class="font-cn">© 2026 共护世界和平 | 仅接受Wise支付链接 https://wise.com/pay/me/feis151 捐赠</p>
-            </div>
+        <!-- 呼吁结尾 -->
+        <div class="content-card">
+            <h2>向全世界发出和平呼吁</h2>
+            <p>我们拒绝暴力，拒绝战争，拒绝无休止的仇恨。</p>
+            <p>愿枪炮归于沉寂，愿孩童放声欢笑，愿万家灯火长久明亮。</p>
+            <p>愿人与人彼此理解，国与国平等相待，让和平之光照亮地球每一寸土地。</p>
+            <p>和平，是全人类共同的终极追求。</p>
         </div>
-    </footer>
+
+        <!-- 底部声明 -->
+        <div class="footer-text">
+            © 世界和平公益倡议页 | 本页面仅作和平理念宣传，无任何募捐收款权限
+        </div>
+    </div>
 </body>
 </html>
