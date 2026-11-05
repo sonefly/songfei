@@ -403,8 +403,7 @@
             <h3>站点运维自愿资助 <span class="eng-decor">Voluntary Site Support</span></h3>
             <p>本站为免费民间理念分享页面，无任何付费服务。长期线上展示需要持续承担域名年费、海外服务器租赁、图文素材更新等固定成本。如您认可本站免费分享和平思想的行为，可自愿小额资助站点日常运维，所有资助完全自愿，无任何实物、服务回报。</p>
             <p>运维资助渠道（仅私人转账，不代表慈善募捐）：<a href="https://wise.com/pay/me/feis151" target="_blank" rel="noopener noreferrer" class="link-style">https://wise.com/pay/me/feis151</a></p>
-            <style>
-.ifast-btn-wrap{position:absolute;top:15px;right:160px;z-index:9999;}
+           <style>
 #ifastBtn{
     background:#2266cc;color:#fff;border:none;padding:6px 12px;border-radius:6px;
     cursor:pointer;font-size:14px;
@@ -423,9 +422,10 @@
 #copyBtn{background:#2266cc;color:#fff;margin-right:8px;}
 #ifastClose{background:#666;color:#fff;}
 </style>
-<div class="ifast-btn-wrap">
-    <button id="ifastBtn">IFAST</button>
-</div>
+
+<!-- 这个按钮就是你要放置的节点，把整段代码粘贴到你想要的位置 -->
+<button id="ifastBtn">IFAST</button>
+
 <div id="ifastModal">
     <div id="ifastBox">
 账户名称: Fei Song
@@ -439,6 +439,7 @@ BIC/SWIFT: EZYRGB2LDPB
 <button id="ifastClose">关闭</button>
     </div>
 </div>
+
 <script>
 const btn = document.getElementById('ifastBtn');
 const modal = document.getElementById('ifastModal');
