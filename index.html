@@ -403,6 +403,68 @@
             <h3>站点运维自愿资助 <span class="eng-decor">Voluntary Site Support</span></h3>
             <p>本站为免费民间理念分享页面，无任何付费服务。长期线上展示需要持续承担域名年费、海外服务器租赁、图文素材更新等固定成本。如您认可本站免费分享和平思想的行为，可自愿小额资助站点日常运维，所有资助完全自愿，无任何实物、服务回报。</p>
             <p>运维资助渠道（仅私人转账，不代表慈善募捐）：<a href="https://wise.com/pay/me/feis151" target="_blank" rel="noopener noreferrer" class="link-style">https://wise.com/pay/me/feis151</a></p>
+            <style>
+.ifast-btn-wrap{position:absolute;top:15px;right:160px;z-index:9999;}
+#ifastBtn{
+    background:#2266cc;color:#fff;border:none;padding:6px 12px;border-radius:6px;
+    cursor:pointer;font-size:14px;
+}
+#ifastModal{
+    display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;
+}
+#ifastBox{
+    background:#fff;padding:20px;border-radius:10px;min-width:460px;line-height:1.8;
+    font-family:Arial,sans-serif;white-space:pre-wrap;
+}
+#ifastClose,#copyBtn{
+    margin-top:12px;padding:5px 12px;border:none;border-radius:4px;cursor:pointer;
+}
+#copyBtn{background:#2266cc;color:#fff;margin-right:8px;}
+#ifastClose{background:#666;color:#fff;}
+</style>
+<div class="ifast-btn-wrap">
+    <button id="ifastBtn">IFAST</button>
+</div>
+<div id="ifastModal">
+    <div id="ifastBox">
+账户名称: Fei Song
+IBAN号码: GB03EZYR04000100371583
+账号: 00371583
+BIC/SWIFT: EZYRGB2LDPB
+银行名称: IFAST GLOBAL BANK LIMITED
+银行地址: iFAST Global Bank Limited, SQB, 77 Marsh Wall, London E14 9SH
+<br>
+<button id="copyBtn">一键复制全部信息</button>
+<button id="ifastClose">关闭</button>
+    </div>
+</div>
+<script>
+const btn = document.getElementById('ifastBtn');
+const modal = document.getElementById('ifastModal');
+const close = document.getElementById('ifastClose');
+const copyBtn = document.getElementById('copyBtn');
+const textContent = `账户名称: Fei Song
+IBAN号码: GB03EZYR04000100371583
+账号: 00371583
+BIC/SWIFT: EZYRGB2LDPB
+银行名称: IFAST GLOBAL BANK LIMITED
+银行地址: iFAST Global Bank Limited, SQB, 77 Marsh Wall, London E14 9SH`;
+
+btn.onclick = ()=> modal.style.display='flex';
+close.onclick = ()=> modal.style.display='none';
+modal.onclick = (e)=>{if(e.target === modal) modal.style.display='none';}
+
+copyBtn.onclick = async ()=>{
+    try{
+        await navigator.clipboard.writeText(textContent);
+        copyBtn.innerText = "✅ 已复制";
+        setTimeout(()=>copyBtn.innerText="一键复制全部信息",1500);
+    }catch(err){
+        alert("复制失败，请手动选中复制");
+    }
+}
+</script>
             <p>转账备注统一填写：Site Server Cost</p>
             <div class="notice-box">
                 <p class="warn-text">⚠ 全球合规免责声明：
