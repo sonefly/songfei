@@ -466,6 +466,201 @@ copyBtn.onclick = async ()=>{
     }
 }
 </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obenno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            background-color: #f4f7fa;
+            color: #222;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 42px;
+            color: #2c3e50;
+            margin-bottom: 16px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .box {
+            background: #fff;
+            padding: 32px 48px;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .btn-group {
+            margin-top:24px;
+            margin-bottom:30px;
+            display:flex;
+            gap:16px;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+        .btn-alipay{
+            display: inline-block;
+            padding: 12px 28px;
+            background: #1677ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            border:none;
+            font-size:16px;
+            cursor:pointer;
+            transition: 0.2s;
+        }
+        .btn-wechat{
+            display: inline-block;
+            padding: 12px 28px;
+            background: #07c160;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            border:none;
+            font-size:16px;
+            cursor:pointer;
+            transition: 0.2s;
+        }
+        .btn-link{
+            display: inline-block;
+            padding: 12px 28px;
+            background: #9b59b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size:16px;
+            transition: 0.2s;
+        }
+        .btn-alipay:hover {
+            background: #0960d8;
+        }
+        .btn-wechat:hover {
+            background: #05aa54;
+        }
+        .btn-link:hover{
+            background:#804499;
+        }
+        /* 二维码并排区域 */
+        .qr-row{
+            display:flex;
+            gap:24px;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+        .qr-item{
+            text-align:center;
+        }
+        .qr-item img{
+            width:180px;
+            border-radius:8px;
+        }
+        .qr-item label{
+            display:block;
+            margin-top:8px;
+            color:#444;
+        }
+        /* 弹窗遮罩 */
+        .mask{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.6);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:999;
+        }
+        .mask.show{
+            display:flex;
+        }
+        .qr-card{
+            background:#fff;
+            padding:20px;
+            border-radius:12px;
+            text-align:center;
+            max-width:360px;
+        }
+        .qr-card img{
+            width:100%;
+            border-radius:8px;
+        }
+        .close-tip{
+            margin-top:12px;
+            color:#777;
+            font-size:14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>✅ Obenno</h1>
+            <p>网站部署成功</p>
+            <div class="btn-group">
+                <button class="btn-alipay" onclick="showAlipay()">支付宝</button>
+                <button class="btn-wechat" onclick="showWechat()">微信支付</button>
+                <a class="btn-link" href="https://sonefly.github.io/TypeWords/" target="_blank">📖 TypeWords 背单词</a>
+            </div>
+
+            <!-- ========== 这里就是插入图片的位置（按钮下方，并排） ========== -->
+            <div class="qr-row">
+                <div class="qr-item">
+                    <img src="https://github.com/sonefly/songfei/blob/main/alipay.JPG?raw=true" alt="支付宝收款码">
+                    <label>支付宝</label>
+                </div>
+                <div class="qr-item">
+                    <img src="https://github.com/sonefly/songfei/blob/main/wechat.JPG?raw=true" alt="微信收款码">
+                    <label>微信</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="mask" id="mask" onclick="closeMask()">
+        <div class="qr-card" onclick="event.stopPropagation()">
+            <img id="qr-img" src="" alt="收款码">
+            <div class="close-tip">点击空白处关闭</div>
+        </div>
+    </div>
+
+<script>
+const mask = document.getElementById('mask');
+const qrImg = document.getElementById('qr-img');
+const alipaySrc = "https://github.com/sonefly/songfei/blob/main/alipay.JPG?raw=true";
+const wechatSrc = "https://github.com/sonefly/songfei/blob/main/wechat.JPG?raw=true";
+
+function showAlipay(){
+    qrImg.src = alipaySrc;
+    mask.classList.add('show');
+}
+function showWechat(){
+    qrImg.src = wechatSrc;
+    mask.classList.add('show');
+}
+function closeMask(){
+    mask.classList.remove('show');
+}
+</script>
             <p>转账备注统一填写：Site Server Cost</p>
             <div class="notice-box">
                 <p class="warn-text">⚠ 全球合规免责声明：
