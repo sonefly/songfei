@@ -507,7 +507,6 @@ copyBtn.onclick = async ()=>{
         }
         .btn-group {
             margin-top:24px;
-            margin-bottom:30px;
             display:flex;
             gap:16px;
             justify-content:center;
@@ -556,25 +555,6 @@ copyBtn.onclick = async ()=>{
         .btn-link:hover{
             background:#804499;
         }
-        /* 二维码并排区域 */
-        .qr-row{
-            display:flex;
-            gap:24px;
-            justify-content:center;
-            flex-wrap:wrap;
-        }
-        .qr-item{
-            text-align:center;
-        }
-        .qr-item img{
-            width:180px;
-            border-radius:8px;
-        }
-        .qr-item label{
-            display:block;
-            margin-top:8px;
-            color:#444;
-        }
         /* 弹窗遮罩 */
         .mask{
             position:fixed;
@@ -608,30 +588,9 @@ copyBtn.onclick = async ()=>{
             font-size:14px;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="box">
-            <h1>✅ Obenno</h1>
-            <p>网站部署成功</p>
-            <div class="btn-group">
                 <button class="btn-alipay" onclick="showAlipay()">支付宝</button>
                 <button class="btn-wechat" onclick="showWechat()">微信支付</button>
-                <a class="btn-link" href="https://sonefly.github.io/TypeWords/" target="_blank">📖 TypeWords 背单词</a>
             </div>
-
-            <!-- ========== 这里就是插入图片的位置（按钮下方，并排） ========== -->
-            <div class="qr-row">
-                <div class="qr-item">
-                    <img src="https://github.com/sonefly/songfei/blob/main/alipay.JPG?raw=true" alt="支付宝收款码">
-                    <label>支付宝</label>
-                </div>
-                <div class="qr-item">
-                    <img src="https://github.com/sonefly/songfei/blob/main/wechat.JPG?raw=true" alt="微信收款码">
-                    <label>微信</label>
-                </div>
-            </div>
-
         </div>
     </div>
 
